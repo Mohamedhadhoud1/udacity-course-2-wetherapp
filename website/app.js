@@ -12,7 +12,7 @@ const postData = async(url = '', data = {}) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        // Body data type must match "Content-Type" header        
+
         body: JSON.stringify(data),
     });
 
@@ -31,9 +31,6 @@ const postData = async(url = '', data = {}) => {
 
 
 // get requist
-
-//let baseURL = 'http://api.openweathermap.org/data/2.5/forecast?zip=';
-//let Key = '&appid=ccbb9a086c745b5c14810bcf6c1f23a4';
 
 document.getElementById('generate').addEventListener('click', performAction);
 
@@ -60,7 +57,7 @@ const getwether = async(baseURL, key) => {
         return data;
     } catch (error) {
         console.log("error", error);
-        // appropriately handle the error
+
     }
 }
 
@@ -76,6 +73,6 @@ const update = async() => {
         document.getElementById('content').innerHTML = `<p>Feeling : ${data.feeling}</p>`;
     } catch (error) {
         console.log("error", error);
-        //appropriately handle the error
+
     }
 };
