@@ -1,5 +1,5 @@
 /* Empty JS object to act as endpoint for all routes */
-projectData = [];
+projectData = {};
 
 // Express to run server and routes
 const express = require('express');
@@ -28,21 +28,19 @@ function listening() {
 
 // Get rout
 
-app.get('/all', function(req, res) {
+app.get('/get', function(req, res) {
     res.send(projectData);
-    projectData=[];
 });
 
- 
+
 // Post rout
-app.post('/add', function(req, res) {
+app.post('/post', function(req, res) {
     console.log(req.body);
-    newEntry = {
-        date:req.body.date,
-        temperature:req.body.temperature,
-        feeling:req.body.feeling,
-        city:req.body.city,
-        country:req.body.country
+    projectData = {
+        date: req.body.date,
+        temperature: req.body.temperature,
+        feeling: req.body.feeling,
+        city: req.body.city,
+        country: req.body.country
     }
-    projectData.push(newEntry);
 });
