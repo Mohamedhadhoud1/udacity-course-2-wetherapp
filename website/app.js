@@ -37,8 +37,8 @@ document.getElementById('generate').addEventListener('click', performAction);
 function performAction(e) {
     const zip = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
-    let baseURL = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&appid=`
-    let Key = 'ccbb9a086c745b5c14810bcf6c1f23a4';
+    const baseURL = `http://api.openweathermap.org/data/2.5/forecast?zip=${zip}&appid=`
+    const Key = 'ccbb9a086c745b5c14810bcf6c1f23a4&units=metric';
     getwether(baseURL, Key)
 
     .then(function(data) {
@@ -69,7 +69,7 @@ const update = async() => {
         document.getElementById("date").innerHTML = `<p>Date : ${data.date}</p>`;
         document.getElementById('country').innerHTML = `<p>Country : ${data.country}</p>`;
         document.getElementById('city').innerHTML = `<p>City : ${data.city}</p>`;
-        document.getElementById('temp').innerHTML = `<p>Tempetartue : ${data.temperature}</p>`;
+        document.getElementById('temp').innerHTML = `<p>Tempetartue : ${data.temperature} Celcius</p>`;
         document.getElementById('content').innerHTML = `<p>Feeling : ${data.feeling}</p>`;
     } catch (error) {
         console.log("error", error);
